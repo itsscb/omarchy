@@ -14,14 +14,15 @@ ansi_art='                 ▄▄▄
 clear
 echo -e "\n$ansi_art\n"
 
-sudo pacman -Syu --noconfirm --needed git
+sudo pacman -Sy --noconfirm --needed git
 
 # Use custom repo if specified, otherwise default to basecamp/omarchy
 OMARCHY_REPO="${OMARCHY_REPO:-basecamp/omarchy}"
 
-echo -e "\nCloning Omarchy from: https://github.com/${OMARCHY_REPO}.git"
+echo -e "\nCloning Omarchy from: https://git.itsscb.de/itsscb/omarchy.git"
 rm -rf ~/.local/share/omarchy/
-git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
+# git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
+git clone "https://git.itsscb.de/itsscb/omarchy.git" ~/.local/share/omarchy >/dev/null
 
 # Use custom branch if instructed, otherwise default to master
 OMARCHY_REF="${OMARCHY_REF:-master}"

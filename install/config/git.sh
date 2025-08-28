@@ -16,3 +16,5 @@ fi
 if [[ -n "${OMARCHY_USER_EMAIL//[[:space:]]/}" ]]; then
   git config --global user.email "$OMARCHY_USER_EMAIL"
 fi
+
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret

@@ -1,7 +1,11 @@
 sudo pacman -S --noconfirm --needed \
-  1password-beta \
-  1password-cli \
-  alacritty \
+  gimp \
+  inkscape \
+  jujutsu \
+  thunderbird \
+  deltachat-desktop \
+  keepassxc \
+  ghostty \
   avahi \
   bash-completion \
   bat \
@@ -9,6 +13,7 @@ sudo pacman -S --noconfirm --needed \
   brightnessctl \
   btop \
   cargo \
+  rustup \
   clang \
   cups \
   cups-browsed \
@@ -69,8 +74,7 @@ sudo pacman -S --noconfirm --needed \
   nss-mdns \
   nvim \
   obs-studio \
-  obsidian \
-  omarchy-chromium \
+  chromium \
   pamixer \
   pinta \
   playerctl \
@@ -84,7 +88,6 @@ sudo pacman -S --noconfirm --needed \
   python-terminaltexteffects \
   ripgrep \
   satty \
-  signal-desktop \
   slurp \
   spotify \
   starship \
@@ -95,8 +98,9 @@ sudo pacman -S --noconfirm --needed \
   tldr \
   tree-sitter-cli \
   ttf-cascadia-mono-nerd \
+  ttf-font-awesome \
+  ttf-ia-writer \
   ttf-jetbrains-mono \
-  typora \
   tzupdate \
   ufw \
   ufw-docker \
@@ -111,7 +115,6 @@ sudo pacman -S --noconfirm --needed \
   wl-clip-persist \
   wl-clipboard \
   wl-screenrec \
-  woff2-font-awesome \
   xdg-desktop-portal-gtk \
   xdg-desktop-portal-hyprland \
   xmlstarlet \

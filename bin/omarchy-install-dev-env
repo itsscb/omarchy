@@ -6,7 +6,7 @@ if [[ -z "$1" ]]; then
 fi
 
 install_php() {
-  sudo pacman -S php composer php-sqlite --noconfirm
+  sudo pacman -Sy php composer php-sqlite --noconfirm
 
   # Install Path for Composer
   if [[ ":$PATH:" != *":$HOME/.config/composer/vendor/bin:"* ]]; then
@@ -33,11 +33,6 @@ install_php() {
   done
 }
 
-install_node() {
-  echo -e "Installing Node.js...\n"
-  mise use --global node@lts
-}
-
 case "$1" in
 ruby)
   echo -e "Installing Ruby on Rails...\n"
@@ -47,7 +42,8 @@ ruby)
   echo -e "\nYou can now run: rails new myproject"
   ;;
 node)
-  install_node
+  echo -e "Installing Node.js...\n"
+  mise use --global node@lts
   ;;
 bun)
   echo -e "Installing Bun...\n"
@@ -68,7 +64,6 @@ php)
 laravel)
   echo -e "Installing PHP and Laravel...\n"
   install_php
-  install_node
   composer global require laravel/installer
   echo -e "\nYou can now run: laravel new myproject"
   ;;

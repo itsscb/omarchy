@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -u
+
+# internal monitor name - change if yours differs
+INT="eDP-1"
+
+output=$(hyprctl monitors 2>/dev/null) || {
+    echo "Error: hyprctl not found or command failed" >&2
+    exit 1
+}
+
+mapfile -t monitors < <(
+    grep -oP '(?<=^Monitor ).*?(?= \(ID )' <<<"$output"
+)
+
+len=${#monitors[@]}
+
+if (( len == 2 )); then
+    hyprctl keyword monitor $INT, disable 2>/dev/null
+    hyprctl keyword workspace r[0-9] m[${monitors[1]}]
+elif (( len == 3 )); then
+    hyprctl keyword monitor $INT, disable 2>/dev/null
+    hyprctl keyword workspace r[1-5] m[${monitors[1]}]
+    hyprctl keyword workspace r[6-9] m[${monitors[2]}]
+    hyprctl keyword workspace r[0] m[${monitors[2]}]
+else
+    hyprctl keyword monitor $INT, preferred,auto,1.5 2>/dev/null
+    hyprctl reload 2>/dev/null
+fi
